@@ -1,62 +1,62 @@
 # Container
 
 
-## Windows È¯°æ¿¡¼­ Linux ¼³Ä¡
+## Windows í™˜ê²½ì—ì„œ Linux ì„¤ì¹˜
 
 [WSL2](https://docs.microsoft.com/ko-kr/windows/wsl/install) :
-WSL(Windows Subsystem for Linux)ÀÇ ¾à¾î·Î À©µµ¿ì 10¿¡¼­ ³×ÀÌÆ¼ºê·Î Linux ½ÇÇà ÆÄÀÏÀ» ½ÇÇàÇÏ±â À§ÇÑ È£È¯¼º °èÃþÀÌ¸ç, WSL2´Â µÎ ¹øÂ° ¹öÀüÀ¸·Î?WSL2ÀÇ ÃÖ´ë Æ¯Â¡À¸·Î´Â °¡»ó ¸Ó½Å(Virtual Machine)À» »ç¿ëÇØ¼­ Linux Ä¿³ÎÀÌ µ¿ÀÛÇÏ´Â "½ÇÁ¦ Linux È¯°æ"À» Á¦°ø.
+WSL(Windows Subsystem for Linux)ì˜ ì•½ì–´ë¡œ ìœˆë„ìš° 10ì—ì„œ ë„¤ì´í‹°ë¸Œë¡œ Linux ì‹¤í–‰ íŒŒì¼ì„ ì‹¤í–‰í•˜ê¸° ìœ„í•œ í˜¸í™˜ì„± ê³„ì¸µì´ë©°, WSL2ëŠ” ë‘ ë²ˆì§¸ ë²„ì „ìœ¼ë¡œ?WSL2ì˜ ìµœëŒ€ íŠ¹ì§•ìœ¼ë¡œëŠ” ê°€ìƒ ë¨¸ì‹ (Virtual Machine)ì„ ì‚¬ìš©í•´ì„œ Linux ì»¤ë„ì´ ë™ìž‘í•˜ëŠ” "ì‹¤ì œ Linux í™˜ê²½"ì„ ì œê³µ.
 <br>
 
 ```powershell
-# 1´Ü°è. : Linux¿ë windows ÇÏÀ§ ½Ã½ºÅÛ ¿É¼Ç ÀÌ¿ë.
+# 1ë‹¨ê³„. : Linuxìš© windows í•˜ìœ„ ì‹œìŠ¤í…œ ì˜µì…˜ ì´ìš©.
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 
-# 2´Ü°è. WLS2 ½ÇÇàÀ» À§ÇÑ ¿ä±¸»çÇ× È®ÀÎ.
+# 2ë‹¨ê³„. WLS2 ì‹¤í–‰ì„ ìœ„í•œ ìš”êµ¬ì‚¬í•­ í™•ì¸.
 
-# 3´Ü°è. Virtual Machine ±â´É »ç¿ë.
+# 3ë‹¨ê³„. Virtual Machine ê¸°ëŠ¥ ì‚¬ìš©.
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 
-# 4´Ü°è. Linux Ä¿³Î ¾÷µ¥ÀÌÆ® ÆÐÅ°Áö ´Ù¿î·Îµå.
-- x64 ¸Ó½Å¿ë ÃÖ½Å WSL2 Linux Ä¿³Î ¾÷µ¥ÀÌÆ® ÆÐÅ°Áö(.msi)
+# 4ë‹¨ê³„. Linux ì»¤ë„ ì—…ë°ì´íŠ¸ íŒ¨í‚¤ì§€ ë‹¤ìš´ë¡œë“œ.
+- x64 ë¨¸ì‹ ìš© ìµœì‹  WSL2 Linux ì»¤ë„ ì—…ë°ì´íŠ¸ íŒ¨í‚¤ì§€(.msi)
 
-# 5´Ü°è. WSL2¸¦ ±âº» ¹öÀüÀ¸·Î ¼³Á¤.
+# 5ë‹¨ê³„. WSL2ë¥¼ ê¸°ë³¸ ë²„ì „ìœ¼ë¡œ ì„¤ì •.
 wsl --set-default-version 2
 
-# 6´Ü°è - ¼±ÅÃÇÑ Linux ¹èÆ÷ ¼³Ä¡.
-- Microsoft Store¸¦ ¿­°í Áñ°Ü Ã£´Â Linux ¹èÆ÷¸¦ ¼±ÅÃ.
-- Ubuntu ¼³Ä¡.(username/password)
-- ÆÐÅ°Áö ¾÷µ¥ÀÌÆ® : sudo apt update && sudo apt upgrade
-- Windows Terminal ¼³Ä¡.(¼±ÅÃ»çÇ×)
+# 6ë‹¨ê³„ - ì„ íƒí•œ Linux ë°°í¬ ì„¤ì¹˜.
+- Microsoft Storeë¥¼ ì—´ê³  ì¦ê²¨ ì°¾ëŠ” Linux ë°°í¬ë¥¼ ì„ íƒ.
+- Ubuntu ì„¤ì¹˜.(username/password)
+- íŒ¨í‚¤ì§€ ì—…ë°ì´íŠ¸ : sudo apt update && sudo apt upgrade
+- Windows Terminal ì„¤ì¹˜.(ì„ íƒì‚¬í•­)
 ```
 
-## Doker ¼³Ä¡ ¹× ½Ç½À
+## Doker ì„¤ì¹˜ ë° ì‹¤ìŠµ
 
 |<center>Option|<center>Description|
 |:---:|:---:|
-|`-d`|¹é±×¶ó¿îµå ¸ðµå(µ¥¸ó ÇÁ·Î¼¼½º)|
-|`-p`|ÄÁÅ×ÀÌ³ÊÀÇ Port¸¦ È£½ºÆ®¿Í ¿¬°á|
-|`-v`|µ¥ÀÌÅÍ º¼·ýÀ» ¼³Á¤, È£½ºÆ®¿Í ÄÁÅ×ÀÌ³ÊÀÇ µð·ºÅä¸®¸¦ ¿¬°áÇÏ¿©, ÆÄÀÏÀ» ÄÁÅ×ÀÌ³Ê¿¡ ÀúÀåÇÏÁö ¾Ê°í È£½ºÆ®¿¡ ¹Ù·Î ÀúÀå(mount)|
-|`-e`|È¯°æ º¯¼öÀÇ ¼³Á¤ÀÌ °¡´É|
-|`-i`|interactive : ÄÁÅ×ÀÌ³Ê¿Í »óÈ£ÀûÀ¸·Î ÁÖ°í ¹ÞÀ½. ÀÔ·Â¿¡ ´ëÇÑ Ãâ·ÂÀ» ³ªÅ¸³»´Â ¸». (t¿Í °°ÀÌ »ç¿ë, Ç¥ÁØÀÔ·ÂÀ» È°¼ºÈ­½ÃÅ°¸ç, ÄÁÅÍÀÌ³Ê¿Í ¿¬°áµÇ¾îÀÖÁö ¾Ê´õ¶óµµ Ç¥ÁØÀÔ·ÂÀ» À¯Áö)|
-|`-t`|tty(:¸®´ª½º µð¹ÙÀÌ½º µå¶óÀÌºêÁß¿¡¼­ ÄÜ¼ÖÀÌ³ª ÅÍ¹Ì³Î)¶ó´Â ÀÇ¹Ì·Î ÅÍ¹Ì³Î°ú ºñ½ÁÇÑ È¯°æÀ» Á¶¼ºÇØÁÜ. (-i ¿É¼Ç°ú ÇÔ²² »ç¿ëÇØ¾ßÇÏ¸ç, bash¸¦ »ç¿ëÇÏ±â À§ÇØ ÇÊ¿ä)|
-|`--it`|-i ¿Í -t ÇÔ²² »ç¿ë|
-|`--rm`|ÄÁÅ×ÀÌ³Ê Á¤Áö½Ã ÀÚµ¿ »èÁ¦|
-|`--restart`|ÄÁÅ×ÀÌ³Ê Àç½ÃÀÛ|
+|`-d`|ë°±ê·¸ë¼ìš´ë“œ ëª¨ë“œ(ë°ëª¬ í”„ë¡œì„¸ìŠ¤)|
+|`-p`|ì»¨í…Œì´ë„ˆì˜ Portë¥¼ í˜¸ìŠ¤íŠ¸ì™€ ì—°ê²°|
+|`-v`|ë°ì´í„° ë³¼ë¥¨ì„ ì„¤ì •, í˜¸ìŠ¤íŠ¸ì™€ ì»¨í…Œì´ë„ˆì˜ ë””ë ‰í† ë¦¬ë¥¼ ì—°ê²°í•˜ì—¬, íŒŒì¼ì„ ì»¨í…Œì´ë„ˆì— ì €ìž¥í•˜ì§€ ì•Šê³  í˜¸ìŠ¤íŠ¸ì— ë°”ë¡œ ì €ìž¥(mount)|
+|`-e`|í™˜ê²½ ë³€ìˆ˜ì˜ ì„¤ì •ì´ ê°€ëŠ¥|
+|`-i`|interactive : ì»¨í…Œì´ë„ˆì™€ ìƒí˜¸ì ìœ¼ë¡œ ì£¼ê³  ë°›ìŒ. ìž…ë ¥ì— ëŒ€í•œ ì¶œë ¥ì„ ë‚˜íƒ€ë‚´ëŠ” ë§. (tì™€ ê°™ì´ ì‚¬ìš©, í‘œì¤€ìž…ë ¥ì„ í™œì„±í™”ì‹œí‚¤ë©°, ì»¨í„°ì´ë„ˆì™€ ì—°ê²°ë˜ì–´ìžˆì§€ ì•Šë”ë¼ë„ í‘œì¤€ìž…ë ¥ì„ ìœ ì§€)|
+|`-t`|tty(:ë¦¬ëˆ…ìŠ¤ ë””ë°”ì´ìŠ¤ ë“œë¼ì´ë¸Œì¤‘ì—ì„œ ì½˜ì†”ì´ë‚˜ í„°ë¯¸ë„)ë¼ëŠ” ì˜ë¯¸ë¡œ í„°ë¯¸ë„ê³¼ ë¹„ìŠ·í•œ í™˜ê²½ì„ ì¡°ì„±í•´ì¤Œ. (-i ì˜µì…˜ê³¼ í•¨ê»˜ ì‚¬ìš©í•´ì•¼í•˜ë©°, bashë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ í•„ìš”)|
+|`--it`|-i ì™€ -t í•¨ê»˜ ì‚¬ìš©|
+|`--rm`|ì»¨í…Œì´ë„ˆ ì •ì§€ì‹œ ìžë™ ì‚­ì œ|
+|`--restart`|ì»¨í…Œì´ë„ˆ ìž¬ì‹œìž‘|
 
-
+<br>
 ```linux
 
-# °ø½Ä nginx image¸¦ »ç¿ëÇÏ¿© web ¼­¹ö ±¸µ¿.
-# http://localhost:8000À¸·Î ÀÌµ¿ÇÏ¿© È®ÀÎ.
+# ê³µì‹ nginx imageë¥¼ ì‚¬ìš©í•˜ì—¬ web ì„œë²„ êµ¬ë™.
+# http://localhost:8000ìœ¼ë¡œ ì´ë™í•˜ì—¬ í™•ì¸.
 
 $ docker run -it --rm -d -p 8000:80 --name uchan nginx
 
 $ docker stop uchan
 
-# local µð·ºÅä¸®¿¡ work Æú´õ »ý¼º ¹× index.html »ý¼º.
-$ cd /mnt/c/work °æ·Î ÀÌµ¿ ¹× È®ÀÎ.
+# local ë””ë ‰í† ë¦¬ì— work í´ë” ìƒì„± ë° index.html ìƒì„±.
+$ cd /mnt/c/work ê²½ë¡œ ì´ë™ ë° í™•ì¸.
 
-# index.html ±¸¼º.
+# index.html êµ¬ì„±.
 <!doctype html>
 <html lang="en">
 <head>
@@ -68,20 +68,20 @@ $ cd /mnt/c/work °æ·Î ÀÌµ¿ ¹× È®ÀÎ.
 </body>
 </html>
 
-# local µð·ºÅä¸®¸¦ ÄÁÅ×ÀÌ³Ê·Î ¹ÙÀÎµù ¸¶¿îÆ®(mount) º¼·ý.
+# local ë””ë ‰í† ë¦¬ë¥¼ ì»¨í…Œì´ë„ˆë¡œ ë°”ì¸ë”© ë§ˆìš´íŠ¸(mount) ë³¼ë¥¨.
 $ docker run -d -p 8000:80 -v /mnt/c/work:/usr/share/nginx/html nginx
 
 # nginx image build
 
-# ±âº» ÀÌ¹ÌÁö¸¦ È°¿ëÇÏ¿© »ç¿ëÀÚ ÁöÁ¤ ÀÌ¹ÌÁö ±¸ÃàÀ» ½ÃÀÛ. 
-# -> ÀÌ¹ÌÁö¸¦ ·ÎÄÃ·Î °¡Á®¿À°í ±× À§¿¡ »ç¿ëÀÚ ÁöÁ¤ ÀÌ¹ÌÁö ºôµå.
+# ê¸°ë³¸ ì´ë¯¸ì§€ë¥¼ í™œìš©í•˜ì—¬ ì‚¬ìš©ìž ì§€ì • ì´ë¯¸ì§€ êµ¬ì¶•ì„ ì‹œìž‘. 
+# -> ì´ë¯¸ì§€ë¥¼ ë¡œì»¬ë¡œ ê°€ì ¸ì˜¤ê³  ê·¸ ìœ„ì— ì‚¬ìš©ìž ì§€ì • ì´ë¯¸ì§€ ë¹Œë“œ.
 FROM nginx:latest 
 
-# index.html ÆÄÀÏÀ» ÄÁÅ×ÀÌ³Ê ³»ºÎÀÇ µð·ºÅä¸®¿¡ ³Ö°í ÀÌ¹ÌÁö¿¡¼­ usr/share/nginx/html/index.html Á¦°øÇÏ´Â ±âº» index.html ÆÄÀÏÀ» µ¤¾î¾¸.
+# index.html íŒŒì¼ì„ ì»¨í…Œì´ë„ˆ ë‚´ë¶€ì˜ ë””ë ‰í† ë¦¬ì— ë„£ê³  ì´ë¯¸ì§€ì—ì„œ usr/share/nginx/html/index.html ì œê³µí•˜ëŠ” ê¸°ë³¸ index.html íŒŒì¼ì„ ë®ì–´ì”€.
 COPY ./index.html/usr/share/nginx/html/index.html
 
  docker build -t buildedImage
 
-ÀÌÁ¦ ÄÁÅ×ÀÌ³Ê¿¡¼­ ÀÌ¹ÌÁö¸¦ ½ÇÇàÇÒ ¼ö ÀÖÁö¸¸ ÀÌ¹ø¿¡´Â htmlÀ» Æ÷ÇÔÇÏ±â À§ÇØ ¹ÙÀÎµå ¸¶¿îÆ®¸¦ ¸¸µé ÇÊ¿ä°¡ ¾ø½À´Ï´Ù.
+ì´ì œ ì»¨í…Œì´ë„ˆì—ì„œ ì´ë¯¸ì§€ë¥¼ ì‹¤í–‰í•  ìˆ˜ ìžˆì§€ë§Œ ì´ë²ˆì—ëŠ” htmlì„ í¬í•¨í•˜ê¸° ìœ„í•´ ë°”ì¸ë“œ ë§ˆìš´íŠ¸ë¥¼ ë§Œë“¤ í•„ìš”ê°€ ì—†ìŠµë‹ˆë‹¤.
  docker run -it --rm -d -p 8000:80 --name uchan buildedImage
 ```
