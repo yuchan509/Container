@@ -44,6 +44,7 @@ wsl --set-default-version 2
 |`--restart`|컨테이너 재시작|
 
 <br>
+  
 ```linux
 
 # 공식 nginx image를 사용하여 web 서버 구동.
