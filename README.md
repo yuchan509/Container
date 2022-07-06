@@ -28,20 +28,104 @@ wsl --set-default-version 2
 - 패키지 업데이트 : sudo apt update && sudo apt upgrade
 - Windows Terminal 설치.(선택사항)
 ```
+## Docker 컨테이너 라이프사이클
+`도커 버전 확인`
+```linux
+$ docker -v
+```
+`실행 중인 컨테이너 확인`
+```linux
+$ docker ps
+$ docker ps -a # 전체 컨테이너 목록 확인(중지된 것 포함)
+$ docker inspect [container id or name] # 컨테이너 상세 정보 확인.
+```
+
+! Docker create / run 명령어 모두 Image가 존재하지 않을 경우, 자동으로 pull을 먼저 수행하여 Image 다운로드 받음.
+
+`컨테이너 생성`
+```linux
+$ docker create [image]
+# b9fb79c7770edd1d86bbfa3dd4730d3a7844a9c3ab98eb640f461a7a8a239041(hash) 생성됨. 
+```
+
+`컨테이너 시작`
+```linux
+$ docker start [container]
+```
+
+`컨테이너 생성 및 시작`
+```linux
+$ docker run [image]
+```
+
+`컨테이너 일시중지`
+```linux
+$ docker pause [container]
+```
+
+`컨테이너 재개`
+```linux
+$ docker unpause [container]
+```
+
+`컨테이너 종료(SIGTERM 시그널 전달)`
+```linux
+$ docker stop [container]
+```
+
+`컨테이너 강제 종료(SIGKILL 시그널 전달)`
+```linux
+$ docker kill [container]
+```
+
+`모든 컨테이너 강제 종료(SIGKILL 시그널 전달)`
+```linux
+$ docker stop $(docker ps -a -q)
+```
+
+`컨테이너 삭제(실행 중인 컨테이너 불가)`
+```linux
+$ docker rm [container]
+```
+
+`컨테이너 강제 종료 후 삭제(SIGKILL 시그널 전달)`
+```linux
+$ docker rm -f [container]
+```
+
+`컨테이너 실행 종료 후 자동 삭제`
+```linux
+$ docker run --rm ...
+```
+
+`중지된 모든 컨테이너 삭제`
+```linux
+$ docker container prune
+```
+
+
 
 ## Doker 설치 및 실습
 
+`이미지(Image)` : 이미지는 컨테이너를 생성할 때 필요한 요소로 컨테이너의 목적에 맞는 바이너리와 의존성이 설치되어 있음. 여러 개의 계층으로 된 바이너리 파일로 존재.
+
+`이미지 저장소(Image Repository)` : 도커 이미지를 관리하고 공유하기 위한 서버 어플리케이션. (e.g. dockerhub, AWS ECR, docker Registry, quay)
+
+`컨테이너(Container)` : 호스트와 다른 컨테이너로부터 격리된 시스템 자원과 네트워크를 사용하는 프로세스. 이미지는 일기 전용으로만 사용되어 변경사항은 컨테이너 계층에 저장. --> 컨테이너에서 무엇을 하든 이미지에 영향을 끼치지 않음.
+
 |<center>Option|<center>Description|
 |:-----:|:---|
-|`-d`|백그라운드 모드(데몬 프로세스)|
-|`-p`|컨테이너의 Port를 호스트와 연결|
-|`-v`|데이터 볼륨을 설정, 호스트와 컨테이너의 디렉토리를 연결하여, 파일을 컨테이너에 저장하지 않고 호스트에 바로 저장(mount)|
+|`-d`|백그라운드 모드로(데몬 프로세스) 실행|
+|`-p`|컨테이너의 Port를 호스트와 연결(호스트 - 컨테이너 간 포트 바인딩)|
+|`-v`|데이터 볼륨을 설정, 호스트와 컨테이너의 디렉토리를 연결하여, 파일을 컨테이너에 저장하지 않고 호스트에 바로 저장(호스트 - 컨테이너 간 볼륨 바인딩)|
 |`-e`|환경 변수의 설정이 가능|
 |`-i`|interactive : 컨테이너와 상호적으로 주고 받음. 입력에 대한 출력을 나타내는 말. (t와 같이 사용, 표준입력을 활성화시키며, 컨터이너와 연결되어있지 않더라도 표준입력을 유지)|
 |`-t`|tty(:리눅스 디바이스 드라이브중에서 콘솔이나 터미널)라는 의미로 터미널과 비슷한 환경을 조성해줌. (-i 옵션과 함께 사용해야하며, bash를 사용하기 위해 필요)|
 |`--it`|-i 와 -t 함께 사용|
+|`--name`|컨테이너 이름 지정, 미정시 자동 생성|
 |`--rm`|컨테이너 정지시 자동 삭제|
 |`--restart`|컨테이너 재시작|
+|`ctrl +  p + q`|실행 중인 상태에서 벗어남|
 
 <br>
   
@@ -51,6 +135,7 @@ wsl --set-default-version 2
 # http://localhost:8000으로 이동하여 확인.
 
 $ docker run -it --rm -d -p 8000:80 --name uchan nginx
+$ curl localhost:8000
 
 $ docker stop uchan
 
@@ -86,3 +171,4 @@ COPY ./index.html/usr/share/nginx/html/index.html
 이제 컨테이너에서 이미지를 실행할 수 있지만 이번에는 html을 포함하기 위해 바인드 마운트를 만들 필요가 없습니다.
  docker run -it --rm -d -p 8000:80 --name uchan buildedImage
 ```
+
