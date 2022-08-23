@@ -1,21 +1,33 @@
 ## Env Setting in unbuntu
 
-- Vmware ¼³Ä¡ ÇÊ¼ö(±âÅ¸ °¡»ó¸Ó½Å È°¿ë °¡´É)
-- Docker, Docker-Compose, kubectl, kustomize, minikube ¼³Ä¡ 
+- Vmware ì„¤ì¹˜ í•„ìˆ˜(ê¸°íƒ€ ê°€ìƒë¨¸ì‹  í™œìš© ê°€ëŠ¥)
+- Docker, Docker-Compose, kubectl, kustomize, minikube ì„¤ì¹˜ 
 
-## Vmware ¼³Ä¡ ¹× È¯°æ ¼³Á¤
+## Vmware ì„¤ì¹˜ ë° í™˜ê²½ ì„¤ì •
 
-## È¯°æ ±¸¼º(Docker, Docker-Compose, kubectl, kustomize, minikube)
+## í™˜ê²½ êµ¬ì„±(Docker, Docker-Compose, kubectl, kustomize, minikube)
+- 
+
+``` shell
+uchan@uchan-virtual-machine:~$ docker ps
+
+[error]
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+
+# solution  (ê¶Œí•œ ë¶€ì—¬)
+$ sudo chmod 666 /var/run/docker.sock
+
+```
 ```shell
-# ¸ñ·Ï È®ÀÎ
+# ëª©ë¡ í™•ì¸
 ls
 
-# shell script ¸¸µé±â.
+# shell script ë§Œë“¤ê¸°.
 $ cat > {shell script name}.sh
 
-# ±ÇÇÑ ºÎ¿©.
+# ê¶Œí•œ ë¶€ì—¬.
 $ chmod u+x {shell script name}.sh
 
-# ½ºÅ©¸³Æ® ½ÇÇà.
-./{shell script name}.sh
+# ìŠ¤í¬ë¦½íŠ¸ ì‹¤í–‰.
+$ ./{shell script name}.sh
 ```
