@@ -1,7 +1,7 @@
 # Container Build
 
 # example1
-// Ubuntu image base -> apache, PHP 연동하여 컨테이너 빌드.
+# Ubuntu image base -> apache, PHP 연동하여 컨테이너 빌드.
 mkdir apache-php
 cd apache-php
 
